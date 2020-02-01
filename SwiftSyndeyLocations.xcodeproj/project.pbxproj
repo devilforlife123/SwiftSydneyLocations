@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0CCC38C972A99636506D10AB /* Pods_SwiftSyndeyLocations_SwiftSyndeyLocationsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 924BDA56AD68C2EA1BCC0BD8 /* Pods_SwiftSyndeyLocations_SwiftSyndeyLocationsUITests.framework */; };
+		8A55F2A8D78FB1B1FFFFC422 /* Pods_SwiftSyndeyLocations.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0C233F55C4A66D142984658 /* Pods_SwiftSyndeyLocations.framework */; };
 		D6F27EA823E5082C00497DCD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F27EA723E5082C00497DCD /* AppDelegate.swift */; };
 		D6F27EAA23E5082C00497DCD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F27EA923E5082C00497DCD /* SceneDelegate.swift */; };
 		D6F27EAC23E5082C00497DCD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F27EAB23E5082C00497DCD /* ViewController.swift */; };
@@ -15,6 +17,10 @@
 		D6F27EB423E5082D00497DCD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6F27EB223E5082D00497DCD /* LaunchScreen.storyboard */; };
 		D6F27EBF23E5082D00497DCD /* SwiftSyndeyLocationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F27EBE23E5082D00497DCD /* SwiftSyndeyLocationsTests.swift */; };
 		D6F27ECA23E5082D00497DCD /* SwiftSyndeyLocationsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F27EC923E5082D00497DCD /* SwiftSyndeyLocationsUITests.swift */; };
+		D6F27EDE23E50C2F00497DCD /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F27EDD23E50C2F00497DCD /* SearchViewModel.swift */; };
+		D6F27EE023E50C9600497DCD /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F27EDF23E50C9600497DCD /* NetworkManager.swift */; };
+		D6F27EE223E50CCA00497DCD /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F27EE123E50CCA00497DCD /* Reachability.swift */; };
+		D7D5157C9622EE2C1DB4B8DE /* Pods_SwiftSyndeyLocationsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B1F4400920307204B4D529E /* Pods_SwiftSyndeyLocationsTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +41,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3D5728DB8673DC544B922C5D /* Pods-SwiftSyndeyLocations-SwiftSyndeyLocationsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftSyndeyLocations-SwiftSyndeyLocationsUITests.debug.xcconfig"; path = "Target Support Files/Pods-SwiftSyndeyLocations-SwiftSyndeyLocationsUITests/Pods-SwiftSyndeyLocations-SwiftSyndeyLocationsUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		53C6951258231F727ADBC80B /* Pods-SwiftSyndeyLocationsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftSyndeyLocationsTests.release.xcconfig"; path = "Target Support Files/Pods-SwiftSyndeyLocationsTests/Pods-SwiftSyndeyLocationsTests.release.xcconfig"; sourceTree = "<group>"; };
+		5CD6DD6593C28E0A60B35F96 /* Pods-SwiftSyndeyLocations.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftSyndeyLocations.release.xcconfig"; path = "Target Support Files/Pods-SwiftSyndeyLocations/Pods-SwiftSyndeyLocations.release.xcconfig"; sourceTree = "<group>"; };
+		728A0F37A4CA296758C479E0 /* Pods-SwiftSyndeyLocationsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftSyndeyLocationsTests.debug.xcconfig"; path = "Target Support Files/Pods-SwiftSyndeyLocationsTests/Pods-SwiftSyndeyLocationsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		74451B426C3B000AC4A6165F /* Pods-SwiftSyndeyLocations.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftSyndeyLocations.debug.xcconfig"; path = "Target Support Files/Pods-SwiftSyndeyLocations/Pods-SwiftSyndeyLocations.debug.xcconfig"; sourceTree = "<group>"; };
+		7B1F4400920307204B4D529E /* Pods_SwiftSyndeyLocationsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftSyndeyLocationsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		924BDA56AD68C2EA1BCC0BD8 /* Pods_SwiftSyndeyLocations_SwiftSyndeyLocationsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftSyndeyLocations_SwiftSyndeyLocationsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6E43549D05D010CE6A886D7 /* Pods-SwiftSyndeyLocations-SwiftSyndeyLocationsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftSyndeyLocations-SwiftSyndeyLocationsUITests.release.xcconfig"; path = "Target Support Files/Pods-SwiftSyndeyLocations-SwiftSyndeyLocationsUITests/Pods-SwiftSyndeyLocations-SwiftSyndeyLocationsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		D6F27EA423E5082C00497DCD /* SwiftSyndeyLocations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftSyndeyLocations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6F27EA723E5082C00497DCD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D6F27EA923E5082C00497DCD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +63,10 @@
 		D6F27EC523E5082D00497DCD /* SwiftSyndeyLocationsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftSyndeyLocationsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6F27EC923E5082D00497DCD /* SwiftSyndeyLocationsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftSyndeyLocationsUITests.swift; sourceTree = "<group>"; };
 		D6F27ECB23E5082D00497DCD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D6F27EDD23E50C2F00497DCD /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		D6F27EDF23E50C9600497DCD /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		D6F27EE123E50CCA00497DCD /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		F0C233F55C4A66D142984658 /* Pods_SwiftSyndeyLocations.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftSyndeyLocations.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A55F2A8D78FB1B1FFFFC422 /* Pods_SwiftSyndeyLocations.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7D5157C9622EE2C1DB4B8DE /* Pods_SwiftSyndeyLocationsTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,12 +90,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CCC38C972A99636506D10AB /* Pods_SwiftSyndeyLocations_SwiftSyndeyLocationsUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D92957B37E63D2947D2094A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				74451B426C3B000AC4A6165F /* Pods-SwiftSyndeyLocations.debug.xcconfig */,
+				5CD6DD6593C28E0A60B35F96 /* Pods-SwiftSyndeyLocations.release.xcconfig */,
+				3D5728DB8673DC544B922C5D /* Pods-SwiftSyndeyLocations-SwiftSyndeyLocationsUITests.debug.xcconfig */,
+				D6E43549D05D010CE6A886D7 /* Pods-SwiftSyndeyLocations-SwiftSyndeyLocationsUITests.release.xcconfig */,
+				728A0F37A4CA296758C479E0 /* Pods-SwiftSyndeyLocationsTests.debug.xcconfig */,
+				53C6951258231F727ADBC80B /* Pods-SwiftSyndeyLocationsTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		713B015D757455DD47B8CDC8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F0C233F55C4A66D142984658 /* Pods_SwiftSyndeyLocations.framework */,
+				924BDA56AD68C2EA1BCC0BD8 /* Pods_SwiftSyndeyLocations_SwiftSyndeyLocationsUITests.framework */,
+				7B1F4400920307204B4D529E /* Pods_SwiftSyndeyLocationsTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D6F27E9B23E5082C00497DCD = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +128,8 @@
 				D6F27EBD23E5082D00497DCD /* SwiftSyndeyLocationsTests */,
 				D6F27EC823E5082D00497DCD /* SwiftSyndeyLocationsUITests */,
 				D6F27EA523E5082C00497DCD /* Products */,
+				0D92957B37E63D2947D2094A /* Pods */,
+				713B015D757455DD47B8CDC8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -149,6 +196,8 @@
 		D6F27ED923E5084100497DCD /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				D6F27EDD23E50C2F00497DCD /* SearchViewModel.swift */,
+				D6F27EDF23E50C9600497DCD /* NetworkManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -172,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				D6F27EA723E5082C00497DCD /* AppDelegate.swift */,
+				D6F27EE123E50CCA00497DCD /* Reachability.swift */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -183,9 +233,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D6F27ECE23E5082D00497DCD /* Build configuration list for PBXNativeTarget "SwiftSyndeyLocations" */;
 			buildPhases = (
+				35AF1F95EC3177448D19FC44 /* [CP] Check Pods Manifest.lock */,
 				D6F27EA023E5082C00497DCD /* Sources */,
 				D6F27EA123E5082C00497DCD /* Frameworks */,
 				D6F27EA223E5082C00497DCD /* Resources */,
+				637BAB7265CD718940987A61 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -200,6 +252,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D6F27ED123E5082D00497DCD /* Build configuration list for PBXNativeTarget "SwiftSyndeyLocationsTests" */;
 			buildPhases = (
+				600722AF376F2E0D7EA0D3B8 /* [CP] Check Pods Manifest.lock */,
 				D6F27EB623E5082D00497DCD /* Sources */,
 				D6F27EB723E5082D00497DCD /* Frameworks */,
 				D6F27EB823E5082D00497DCD /* Resources */,
@@ -218,9 +271,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D6F27ED423E5082D00497DCD /* Build configuration list for PBXNativeTarget "SwiftSyndeyLocationsUITests" */;
 			buildPhases = (
+				50FE1A441E0C9E450A893F35 /* [CP] Check Pods Manifest.lock */,
 				D6F27EC123E5082D00497DCD /* Sources */,
 				D6F27EC223E5082D00497DCD /* Frameworks */,
 				D6F27EC323E5082D00497DCD /* Resources */,
+				CFE2D2D9256361ABE210B01E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -302,6 +357,109 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		35AF1F95EC3177448D19FC44 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SwiftSyndeyLocations-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		50FE1A441E0C9E450A893F35 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SwiftSyndeyLocations-SwiftSyndeyLocationsUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		600722AF376F2E0D7EA0D3B8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SwiftSyndeyLocationsTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		637BAB7265CD718940987A61 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SwiftSyndeyLocations/Pods-SwiftSyndeyLocations-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SwiftSyndeyLocations/Pods-SwiftSyndeyLocations-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwiftSyndeyLocations/Pods-SwiftSyndeyLocations-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CFE2D2D9256361ABE210B01E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SwiftSyndeyLocations-SwiftSyndeyLocationsUITests/Pods-SwiftSyndeyLocations-SwiftSyndeyLocationsUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SwiftSyndeyLocations-SwiftSyndeyLocationsUITests/Pods-SwiftSyndeyLocations-SwiftSyndeyLocationsUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwiftSyndeyLocations-SwiftSyndeyLocationsUITests/Pods-SwiftSyndeyLocations-SwiftSyndeyLocationsUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D6F27EA023E5082C00497DCD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -309,6 +467,9 @@
 			files = (
 				D6F27EAC23E5082C00497DCD /* ViewController.swift in Sources */,
 				D6F27EA823E5082C00497DCD /* AppDelegate.swift in Sources */,
+				D6F27EE223E50CCA00497DCD /* Reachability.swift in Sources */,
+				D6F27EE023E50C9600497DCD /* NetworkManager.swift in Sources */,
+				D6F27EDE23E50C2F00497DCD /* SearchViewModel.swift in Sources */,
 				D6F27EAA23E5082C00497DCD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -480,6 +641,7 @@
 		};
 		D6F27ECF23E5082D00497DCD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 74451B426C3B000AC4A6165F /* Pods-SwiftSyndeyLocations.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -497,6 +659,7 @@
 		};
 		D6F27ED023E5082D00497DCD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5CD6DD6593C28E0A60B35F96 /* Pods-SwiftSyndeyLocations.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -514,6 +677,7 @@
 		};
 		D6F27ED223E5082D00497DCD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 728A0F37A4CA296758C479E0 /* Pods-SwiftSyndeyLocationsTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -535,6 +699,7 @@
 		};
 		D6F27ED323E5082D00497DCD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 53C6951258231F727ADBC80B /* Pods-SwiftSyndeyLocationsTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -556,6 +721,7 @@
 		};
 		D6F27ED523E5082D00497DCD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3D5728DB8673DC544B922C5D /* Pods-SwiftSyndeyLocations-SwiftSyndeyLocationsUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -575,6 +741,7 @@
 		};
 		D6F27ED623E5082D00497DCD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D6E43549D05D010CE6A886D7 /* Pods-SwiftSyndeyLocations-SwiftSyndeyLocationsUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
