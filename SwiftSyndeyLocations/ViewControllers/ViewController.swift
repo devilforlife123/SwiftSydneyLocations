@@ -13,8 +13,10 @@ class ViewController: UIViewController {
 
     var viewModel:SearchViewModel = SearchViewModel()
     var refreshBarButton:UIBarButtonItem!
-    
+    var selectedLocation:Location? = nil
     @IBOutlet weak var mapView:MKMapView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -28,16 +30,20 @@ class ViewController: UIViewController {
           
       viewModel.showAlert = { [weak self]
                    (message) in
-             self?.showAlert(message: message)
-            self?.navigationItem.rightBarButtonItem?.isEnabled = true
+            GCD.runOnMainThread {
+                self?.showAlert(message: message)
+                self?.navigationItem.rightBarButtonItem?.isEnabled = true
+            }
                  
        }
         
         viewModel.dataUpdated = {
             [weak self] in
-              self?.showLocations()
-              self?.addAnnotations()
-              self?.navigationItem.rightBarButtonItem?.isEnabled = true
+            GCD.runOnMainThread {
+                self?.showLocations()
+                self?.addAnnotations()
+                self?.navigationItem.rightBarButtonItem?.isEnabled = true
+            }
         }
     }
     
@@ -99,6 +105,7 @@ class ViewController: UIViewController {
       }
       return mapView.regionThatFits(region)
     }
+    
     private func showAlert(title: String = "Location App", message: String?) {
          let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
          let okAction = UIAlertAction(title:NSLocalizedString("OK", comment: ""), style: UIAlertAction.Style.default) {(action) in
@@ -143,9 +150,35 @@ extension ViewController:MKMapViewDelegate{
         return annotationView
     }
     
-    @objc func showLocationDescription(_ sender: UIButton) {
-        
-    }
     
-}
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+            selectedLocation = view.annotation as? Location
+        }
+        
+        @objc func showLocationDescription(_ sender: UIButton) {
+            
+           performSegue(withIdentifier: "EditDescription", sender: sender)
+            
+         }
+        
+        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if segue.identifier == "EditDescription"{
+                let controller = segue.destination as! EditDescriptionViewController
+                controller.delegate = self
+                controller.location = selectedLocation
+            }
+        }
+    }
+
+    extension ViewController:LocationDelegate{
+        
+        func locationDescriptionChanged(_ changedLocation: Location) {
+            
+            let location = viewModel.locationsArray.filter({$0.latitude == changedLocation.latitude && $0.longitude == changedLocation.longitude}).first
+            location?.locationDescription = changedLocation.locationDescription
+            try! DiskCareTaker.save(viewModel.locationsArray, to: viewModel.fileName)
+            addAnnotations()
+            
+        }
+    }
 
