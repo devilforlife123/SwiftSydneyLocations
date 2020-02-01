@@ -10,8 +10,29 @@ import Foundation
 
 class SearchViewModel{
     
+    var showAlert:((String)->())?
+    var locationsArray = [Location]()
+    var dataUpdated:(()->())?
+    
     func fetchLocations(completion:@escaping()->()){
-        self.request { _ in
+        self.request { locations in
+            
+            switch locations{
+            case .Success(let locationResult):
+                if let locationResult = locationResult{
+                  self.locationsArray = []
+                  self.locationsArray.append(contentsOf: locationResult.locations ?? [])
+                  self.dataUpdated?()
+                }
+                completion()
+            case .Failure(let message):
+                  self.showAlert?(message)
+                completion()
+            case .Error(let error):
+                self.showAlert?(error)
+                completion()
+            }
+            
         }
     }
         
