@@ -76,6 +76,9 @@ class ViewController: UIViewController {
         let location = Location(coordinate: touchMapCoordinate)
 
         mapView.addAnnotation(location)
+        viewModel.locationsArray.append(location)
+        try! viewModel.save()
+        
         GCD.afterDelay(1) {
             self.selectedLocation = location
             self.performSegue(withIdentifier: "EditDescription", sender: nil)
@@ -147,29 +150,40 @@ extension ViewController:MKMapViewDelegate{
         guard annotation is Location else {
           return nil
         }
-        let identifier = "Location"
+       let identifier = "LocationView"
+        
+    
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
         if annotationView == nil {
           let pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-          
+
           pinView.isEnabled = true
           pinView.canShowCallout = true
           pinView.animatesDrop = true
-          pinView.pinTintColor = UIColor.red
-          
-          let rightButton = UIButton(type: .infoLight)
+          let rightButton = UIButton(type: .detailDisclosure)
           rightButton.addTarget(self, action: #selector(showLocationDescription(_:)), for: .touchUpInside)
           pinView.rightCalloutAccessoryView = rightButton
-          pinView.leftCalloutAccessoryView = UIImageView(image: UIImage(named: "Flag"))
-          
           annotationView = pinView
         }
-        
+
         if let annotationView = annotationView {
-            
+
           annotationView.annotation = annotation
         }
-        
+        if let _ = (annotation as! Location).isAdded{
+            (annotationView as! MKPinAnnotationView).pinTintColor = UIColor.brown
+        }else{
+            (annotationView as! MKPinAnnotationView).pinTintColor = UIColor.red
+        }
+        var locationImage:UIImage!
+          if let data = (annotation as! Location).imageData{
+              locationImage = UIImage(data: data)
+          }else{
+              locationImage = UIImage(named:"Flag")
+          }
+        let locationImageView =  UIImageView(frame: CGRect(x: 0, y: 0, width: annotationView!.frame.height, height: annotationView!.frame.height))
+        locationImageView.image = locationImage
+        annotationView?.leftCalloutAccessoryView = locationImageView
         let detailLabel = UILabel()
              detailLabel.numberOfLines = 0
              detailLabel.font = detailLabel.font.withSize(15)
@@ -204,6 +218,7 @@ extension ViewController:MKMapViewDelegate{
            let location = viewModel.locationsArray.filter({$0.latitude == changedLocation.latitude && $0.longitude == changedLocation.longitude}).first
            location?.locationDescription = changedLocation.locationDescription
            location?.name = changedLocation.name
+            location?.imageData = changedLocation.imageData
            try! DiskCareTaker.save(viewModel.locationsArray, to: viewModel.fileName)
            addAnnotations()
                

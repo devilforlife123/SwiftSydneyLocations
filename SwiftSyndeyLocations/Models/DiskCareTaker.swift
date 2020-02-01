@@ -10,7 +10,7 @@ import Foundation
 
 class DiskCareTaker{
     
-   static let decoder = JSONDecoder()
+  static let decoder = JSONDecoder()
   static let encoder = JSONEncoder()
     
    static func retrieve<T:Codable>(_ type:T.Type, from fileName:String)throws ->T{

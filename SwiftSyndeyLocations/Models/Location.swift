@@ -15,12 +15,16 @@ class Location:NSObject,Codable,MKAnnotation{
     var locationDescription:String? = nil
     var latitude:Double?
     var longitude:Double?
+    var imageData:Data?
+    var isAdded:Bool?
        
     enum CodingKeys:String,CodingKey{
            case name
            case latitude = "lat"
            case longitude = "lng"
            case description = "description"
+           case imageData
+           case isAdded
     }
     
     init(coordinate:CLLocationCoordinate2D){
@@ -28,6 +32,8 @@ class Location:NSObject,Codable,MKAnnotation{
         self.longitude  = coordinate.longitude
         self.name = "Default Location"
         self.locationDescription = "Default Description"
+        self.imageData = UIImage(named: "Flag")!.pngData()!
+        self.isAdded = true
     }
        
     required init(from decoder:Decoder) throws{
@@ -36,7 +42,9 @@ class Location:NSObject,Codable,MKAnnotation{
             self.latitude = try container.decodeIfPresent(Double.self,forKey:.latitude)
             self.longitude = try container.decodeIfPresent(Double.self,forKey:.longitude)
             self.locationDescription = try container.decodeIfPresent(String.self,forKey:.description)
-       }
+            self.imageData = try container.decodeIfPresent(Data.self, forKey:.imageData)
+            self.isAdded = try container.decodeIfPresent(Bool.self,forKey:.isAdded)
+    }
        
        func encode(to encoder: Encoder) throws {
              var container = encoder.container(keyedBy: CodingKeys.self)
@@ -44,6 +52,8 @@ class Location:NSObject,Codable,MKAnnotation{
                  try container.encode(locationDescription, forKey: .description)
                  try container.encode(latitude,forKey:.latitude)
                 try container.encode(longitude,forKey: .longitude)
+                try container.encode(imageData,forKey:.imageData)
+                try container.encode(isAdded,forKey: .isAdded)
        }
     
 }
