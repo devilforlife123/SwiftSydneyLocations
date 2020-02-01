@@ -16,7 +16,7 @@ class SearchViewModel{
     }
         
     func request(completion:@escaping ()->()){
-            NetworkManager.shared.getLocations {
+        NetworkManager.shared.getLocations { result in
 
             }
     }
