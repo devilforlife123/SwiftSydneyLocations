@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     var refreshBarButton:UIBarButtonItem!
     var selectedLocation:Location? = nil
     @IBOutlet weak var mapView:MKMapView!
+    private let activityIndicatorView = UIActivityIndicatorView(style: .large)
     
     
     override func viewDidLoad() {
@@ -23,6 +24,7 @@ class ViewController: UIViewController {
         mapView.delegate = self
         self.configureUIElements()
          self.configureClosures()
+        activityIndicatorView.startAnimating()
         viewModel.loadLocations()
     }
     
@@ -33,6 +35,7 @@ class ViewController: UIViewController {
             GCD.runOnMainThread {
                 self?.showAlert(message: message)
                 self?.navigationItem.rightBarButtonItem?.isEnabled = true
+                self?.activityIndicatorView.stopAnimating()
             }
                  
        }
@@ -43,6 +46,7 @@ class ViewController: UIViewController {
                 self?.showLocations()
                 self?.addAnnotations()
                 self?.navigationItem.rightBarButtonItem?.isEnabled = true
+                self?.activityIndicatorView.stopAnimating()
             }
         }
     }
@@ -53,11 +57,13 @@ class ViewController: UIViewController {
                   navigationItem.rightBarButtonItem = refreshBarButton
                   navigationItem.rightBarButtonItem?.isEnabled = false
         let region = MKCoordinateRegion(.world)
-        mapView.setRegion(region, animated: true)
+        mapView.setRegion(mapView.regionThatFits(region), animated: true)
+        activityIndicatorView.center = mapView.center
         
     }
     
     @objc func refreshMapView(){
+        activityIndicatorView.startAnimating()
          viewModel.locationsArray = []
          viewModel.loadLocations()
     }
