@@ -22,6 +22,13 @@ class Location:NSObject,Codable,MKAnnotation{
            case longitude = "lng"
            case description = "description"
     }
+    
+    init(coordinate:CLLocationCoordinate2D){
+        self.latitude   = coordinate.latitude
+        self.longitude  = coordinate.longitude
+        self.name = "Default Location"
+        self.locationDescription = "Default Description"
+    }
        
     required init(from decoder:Decoder) throws{
            let container = try decoder.container(keyedBy: CodingKeys.self)

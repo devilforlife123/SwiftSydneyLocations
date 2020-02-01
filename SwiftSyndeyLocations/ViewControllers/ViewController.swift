@@ -60,6 +60,27 @@ class ViewController: UIViewController {
         mapView.setRegion(mapView.regionThatFits(region), animated: true)
         activityIndicatorView.center = mapView.center
         
+        let longPressRecogniser = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(_:)))
+        longPressRecogniser.minimumPressDuration = 1.0
+        mapView.addGestureRecognizer(longPressRecogniser)
+        
+    }
+    
+    
+    @objc func handleLongPress(_ gestureRecognizer : UIGestureRecognizer){
+        if gestureRecognizer.state != .began { return }
+
+        let touchPoint = gestureRecognizer.location(in: mapView)
+        let touchMapCoordinate = mapView.convert(touchPoint, toCoordinateFrom: mapView)
+
+        let location = Location(coordinate: touchMapCoordinate)
+
+        mapView.addAnnotation(location)
+        GCD.afterDelay(1) {
+            self.selectedLocation = location
+            self.performSegue(withIdentifier: "EditDescription", sender: nil)
+        }
+        
     }
     
     @objc func refreshMapView(){
@@ -133,7 +154,7 @@ extension ViewController:MKMapViewDelegate{
           
           pinView.isEnabled = true
           pinView.canShowCallout = true
-          pinView.animatesDrop = false
+          pinView.animatesDrop = true
           pinView.pinTintColor = UIColor.red
           
           let rightButton = UIButton(type: .infoLight)
@@ -178,13 +199,14 @@ extension ViewController:MKMapViewDelegate{
 
     extension ViewController:LocationDelegate{
         
-        func locationDescriptionChanged(_ changedLocation: Location) {
-            
-            let location = viewModel.locationsArray.filter({$0.latitude == changedLocation.latitude && $0.longitude == changedLocation.longitude}).first
-            location?.locationDescription = changedLocation.locationDescription
-            try! DiskCareTaker.save(viewModel.locationsArray, to: viewModel.fileName)
-            addAnnotations()
-            
+       func locationDescriptionChanged(_ changedLocation: Location) {
+               
+           let location = viewModel.locationsArray.filter({$0.latitude == changedLocation.latitude && $0.longitude == changedLocation.longitude}).first
+           location?.locationDescription = changedLocation.locationDescription
+           location?.name = changedLocation.name
+           try! DiskCareTaker.save(viewModel.locationsArray, to: viewModel.fileName)
+           addAnnotations()
+               
         }
     }
 

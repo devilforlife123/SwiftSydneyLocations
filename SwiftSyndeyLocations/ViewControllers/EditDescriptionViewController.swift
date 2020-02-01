@@ -9,6 +9,9 @@
 import Foundation
 import UIKit
 
+import Foundation
+import UIKit
+
 protocol LocationDelegate:class{
     
     func locationDescriptionChanged(_ changedLocation:Location)
@@ -23,7 +26,8 @@ class EditDescriptionViewController:UIViewController{
     }
     
     @IBAction func saveButtonPressed(_ sender: Any) {
-        location.locationDescription = descriptionTextView.text
+        location.locationDescription = locationDescriptionTextView.text
+        location.name = locationNameTextView.text
         delegate.locationDescriptionChanged(location)
         dismiss(animated: true, completion: nil)
     }
@@ -36,7 +40,8 @@ class EditDescriptionViewController:UIViewController{
        }
      }
     
-    @IBOutlet weak var descriptionTextView: UITextView!
+    @IBOutlet weak var locationDescriptionTextView: UITextView!
+    @IBOutlet weak var locationNameTextView:UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,13 +56,12 @@ class EditDescriptionViewController:UIViewController{
     
     func updateUI() {
         if(location.locationDescription == "" || location.locationDescription == nil){
-            descriptionTextView.text = "(No Description)"
+            locationDescriptionTextView.text = "(No Description)"
         }else{
-           descriptionTextView.text = location.locationDescription
+           locationDescriptionTextView.text = location.locationDescription
         }
     }
     
     
     
 }
-
