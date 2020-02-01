@@ -23,6 +23,8 @@
 		D6F27EE423E50F8D00497DCD /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F27EE323E50F8D00497DCD /* Result.swift */; };
 		D6F27EE623E5178400497DCD /* LocationSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F27EE523E5178400497DCD /* LocationSearchResult.swift */; };
 		D6F27EE823E517A100497DCD /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F27EE723E517A100497DCD /* Location.swift */; };
+		D6F27EEA23E5228800497DCD /* GCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F27EE923E5228800497DCD /* GCD.swift */; };
+		D6F27EEC23E52BB300497DCD /* DiskCareTaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F27EEB23E52BB300497DCD /* DiskCareTaker.swift */; };
 		D7D5157C9622EE2C1DB4B8DE /* Pods_SwiftSyndeyLocationsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B1F4400920307204B4D529E /* Pods_SwiftSyndeyLocationsTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +74,8 @@
 		D6F27EE323E50F8D00497DCD /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		D6F27EE523E5178400497DCD /* LocationSearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchResult.swift; sourceTree = "<group>"; };
 		D6F27EE723E517A100497DCD /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		D6F27EE923E5228800497DCD /* GCD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCD.swift; sourceTree = "<group>"; };
+		D6F27EEB23E52BB300497DCD /* DiskCareTaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskCareTaker.swift; sourceTree = "<group>"; };
 		F0C233F55C4A66D142984658 /* Pods_SwiftSyndeyLocations.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftSyndeyLocations.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -205,6 +209,7 @@
 				D6F27EDF23E50C9600497DCD /* NetworkManager.swift */,
 				D6F27EE523E5178400497DCD /* LocationSearchResult.swift */,
 				D6F27EE723E517A100497DCD /* Location.swift */,
+				D6F27EEB23E52BB300497DCD /* DiskCareTaker.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -230,6 +235,7 @@
 				D6F27EA723E5082C00497DCD /* AppDelegate.swift */,
 				D6F27EE123E50CCA00497DCD /* Reachability.swift */,
 				D6F27EE323E50F8D00497DCD /* Result.swift */,
+				D6F27EE923E5228800497DCD /* GCD.swift */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -473,12 +479,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6F27EEA23E5228800497DCD /* GCD.swift in Sources */,
 				D6F27EAC23E5082C00497DCD /* ViewController.swift in Sources */,
 				D6F27EA823E5082C00497DCD /* AppDelegate.swift in Sources */,
 				D6F27EE223E50CCA00497DCD /* Reachability.swift in Sources */,
 				D6F27EE623E5178400497DCD /* LocationSearchResult.swift in Sources */,
 				D6F27EE823E517A100497DCD /* Location.swift in Sources */,
 				D6F27EE023E50C9600497DCD /* NetworkManager.swift in Sources */,
+				D6F27EEC23E52BB300497DCD /* DiskCareTaker.swift in Sources */,
 				D6F27EE423E50F8D00497DCD /* Result.swift in Sources */,
 				D6F27EDE23E50C2F00497DCD /* SearchViewModel.swift in Sources */,
 				D6F27EAA23E5082C00497DCD /* SceneDelegate.swift in Sources */,

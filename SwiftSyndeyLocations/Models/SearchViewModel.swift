@@ -10,9 +10,29 @@ import Foundation
 
 class SearchViewModel{
     
+    let fileName = "locationData"
     var showAlert:((String)->())?
     var locationsArray = [Location]()
     var dataUpdated:(()->())?
+    
+    func loadLocations(){
+        if let locations = try? DiskCareTaker.retrieve([Location].self, from: fileName){
+            locationsArray.append(contentsOf: locations)
+            self.dataUpdated?()
+        }else{
+            self.fetchLocations {
+                if(self.locationsArray.count > 0){
+                    try! self.save()
+                    self.dataUpdated?()
+                }
+            }
+        }
+    }
+    
+    public func save()throws{
+           try DiskCareTaker.save(locationsArray,to:fileName)
+       }
+       
     
     func fetchLocations(completion:@escaping()->()){
         self.request { locations in
