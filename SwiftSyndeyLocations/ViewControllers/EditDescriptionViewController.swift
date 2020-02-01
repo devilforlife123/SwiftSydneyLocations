@@ -27,6 +27,7 @@ class EditDescriptionViewController:UITableViewController{
     @IBOutlet weak var latitudeLabel: UILabel!
     @IBOutlet weak var longitudeLabel: UILabel!
     @IBOutlet weak var imageHeight: NSLayoutConstraint!
+    
     @IBAction func cancelButtonPressed(_ sender: Any) {
          navigationController?.popViewController(animated: true)
     }
@@ -132,7 +133,6 @@ class EditDescriptionViewController:UITableViewController{
 }
 extension EditDescriptionViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
   
-  // MARK:- Image Helper Methods
   func takePhotoWithCamera() {
     let imagePicker = UIImagePickerController()
     imagePicker.sourceType = .camera

@@ -54,8 +54,8 @@ class ViewController: UIViewController {
         viewModel.dataUpdated = {
             [weak self] in
             GCD.runOnMainThread {
-                self?.showLocations()
                 self?.addAnnotations()
+                self?.showLocations()
                 self?.navigationItem.rightBarButtonItem?.isEnabled = true
                 self?.activityIndicatorView.stopAnimating()
             }
@@ -90,7 +90,7 @@ class ViewController: UIViewController {
         viewModel.locationsArray.append(location)
         try! viewModel.save()
         
-        GCD.afterDelay(1) {
+        GCD.afterDelay(2) {
             self.selectedLocation = location
             self.performSegue(withIdentifier: "EditDescription", sender: nil)
         }
@@ -227,10 +227,13 @@ extension ViewController:MKMapViewDelegate{
     extension ViewController:LocationDelegate{
         
         func locationDeleted(_ deletedLocation:Location){
-            viewModel.locationsArray.removeAll(where: {$0 == deletedLocation})
+            viewModel.locationsArray.removeAll { (location) -> Bool in
+                return location == deletedLocation
+            }
             self.mapView.removeAnnotation(deletedLocation)
             try! DiskCareTaker.save(viewModel.locationsArray, to: viewModel.fileName)
             addAnnotations()
+            self.showLocations()
         }
         
        func locationDetailsChanged(_ changedLocation: Location) {
@@ -241,6 +244,7 @@ extension ViewController:MKMapViewDelegate{
            location?.imageData = changedLocation.imageData
            try! DiskCareTaker.save(viewModel.locationsArray, to: viewModel.fileName)
            addAnnotations()
+           self.showLocations()
                
         }
     }
