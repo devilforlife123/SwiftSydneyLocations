@@ -160,6 +160,7 @@ extension ViewController:MKMapViewDelegate{
           let rightButton = UIButton(type: .infoLight)
           rightButton.addTarget(self, action: #selector(showLocationDescription(_:)), for: .touchUpInside)
           pinView.rightCalloutAccessoryView = rightButton
+          pinView.leftCalloutAccessoryView = UIImageView(image: UIImage(named: "Flag"))
           
           annotationView = pinView
         }
@@ -185,7 +186,6 @@ extension ViewController:MKMapViewDelegate{
         @objc func showLocationDescription(_ sender: UIButton) {
             
            performSegue(withIdentifier: "EditDescription", sender: sender)
-            
          }
         
         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

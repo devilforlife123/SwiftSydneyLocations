@@ -17,19 +17,21 @@ protocol LocationDelegate:class{
     func locationDescriptionChanged(_ changedLocation:Location)
 }
 
-class EditDescriptionViewController:UIViewController{
+
+class EditDescriptionViewController:UITableViewController{
     
     weak var delegate:LocationDelegate!
-    @IBOutlet weak var popupView: UIView!
+    @IBOutlet weak var latitudeLabel: UILabel!
+    @IBOutlet weak var longitudeLabel: UILabel!
     @IBAction func cancelButtonPressed(_ sender: Any) {
-         dismiss(animated: true, completion: nil)
+         navigationController?.popViewController(animated: true)
     }
     
     @IBAction func saveButtonPressed(_ sender: Any) {
         location.locationDescription = locationDescriptionTextView.text
         location.name = locationNameTextView.text
         delegate.locationDescriptionChanged(location)
-        dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
     }
     
     var location: Location! {
@@ -46,8 +48,6 @@ class EditDescriptionViewController:UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        popupView.layer.cornerRadius = 10
-           
         if location != nil {
             updateUI()
         }
@@ -60,6 +60,9 @@ class EditDescriptionViewController:UIViewController{
         }else{
            locationDescriptionTextView.text = location.locationDescription
         }
+        
+        latitudeLabel.text = String(format: "%.8f", location.latitude ?? 0.0)
+        longitudeLabel.text = String(format: "%.8f", location.longitude ?? 0.0)
     }
     
     
