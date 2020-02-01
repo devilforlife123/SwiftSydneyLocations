@@ -56,6 +56,10 @@ class Location:NSObject,Codable,MKAnnotation{
                 try container.encode(isAdded,forKey: .isAdded)
        }
     
+    static func ==(lhs: Location, rhs: Location) -> Bool {
+        return lhs.latitude == rhs.latitude && lhs.longitude == rhs.longitude
+    }
+    
 }
 extension Location{
 

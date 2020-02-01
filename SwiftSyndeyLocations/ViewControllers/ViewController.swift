@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
 class ViewController: UIViewController {
 
@@ -16,12 +17,22 @@ class ViewController: UIViewController {
     var selectedLocation:Location? = nil
     @IBOutlet weak var mapView:MKMapView!
     private let activityIndicatorView = UIActivityIndicatorView(style: .large)
-    
+    let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         mapView.delegate = self
+        let authStatus = CLLocationManager.authorizationStatus()
+        if authStatus == .notDetermined {
+          locationManager.requestWhenInUseAuthorization()
+          return
+        }
+        
+        if authStatus == .denied || authStatus == .restricted {
+          showAlert(message: "Please enable location services for this app in Settings.")
+          return
+        }
         self.configureUIElements()
          self.configureClosures()
         activityIndicatorView.startAnimating()
@@ -110,10 +121,6 @@ class ViewController: UIViewController {
       switch annotations.count {
       case 0:
         region = MKCoordinateRegion(center: mapView.userLocation.coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
-        
-      case 1:
-        let annotation = annotations[annotations.count - 1]
-        region = MKCoordinateRegion(center: annotation.coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
         
       default:
         var topLeft = CLLocationCoordinate2D(latitude: -90, longitude: 180)
@@ -209,16 +216,29 @@ extension ViewController:MKMapViewDelegate{
                 controller.location = selectedLocation
             }
         }
+    
+    @IBAction func showUserCurrentLocation() {
+       let theRegion = region(for: [])
+       mapView.setRegion(theRegion, animated: true)
+     }
+
     }
 
     extension ViewController:LocationDelegate{
         
-       func locationDescriptionChanged(_ changedLocation: Location) {
+        func locationDeleted(_ deletedLocation:Location){
+            viewModel.locationsArray.removeAll(where: {$0 == deletedLocation})
+            self.mapView.removeAnnotation(deletedLocation)
+            try! DiskCareTaker.save(viewModel.locationsArray, to: viewModel.fileName)
+            addAnnotations()
+        }
+        
+       func locationDetailsChanged(_ changedLocation: Location) {
                
-           let location = viewModel.locationsArray.filter({$0.latitude == changedLocation.latitude && $0.longitude == changedLocation.longitude}).first
+           let location = viewModel.locationsArray.filter({$0 == changedLocation}).first
            location?.locationDescription = changedLocation.locationDescription
            location?.name = changedLocation.name
-            location?.imageData = changedLocation.imageData
+           location?.imageData = changedLocation.imageData
            try! DiskCareTaker.save(viewModel.locationsArray, to: viewModel.fileName)
            addAnnotations()
                

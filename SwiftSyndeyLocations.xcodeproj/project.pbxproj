@@ -26,7 +26,6 @@
 		D6F27EEA23E5228800497DCD /* GCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F27EE923E5228800497DCD /* GCD.swift */; };
 		D6F27EEC23E52BB300497DCD /* DiskCareTaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F27EEB23E52BB300497DCD /* DiskCareTaker.swift */; };
 		D6F27EEE23E52CD900497DCD /* EditDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F27EED23E52CD900497DCD /* EditDescriptionViewController.swift */; };
-		D6F27EF823E568CB00497DCD /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F27EF723E568CB00497DCD /* UIView+Extensions.swift */; };
 		D7D5157C9622EE2C1DB4B8DE /* Pods_SwiftSyndeyLocationsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B1F4400920307204B4D529E /* Pods_SwiftSyndeyLocationsTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -79,7 +78,6 @@
 		D6F27EE923E5228800497DCD /* GCD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCD.swift; sourceTree = "<group>"; };
 		D6F27EEB23E52BB300497DCD /* DiskCareTaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskCareTaker.swift; sourceTree = "<group>"; };
 		D6F27EED23E52CD900497DCD /* EditDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDescriptionViewController.swift; sourceTree = "<group>"; };
-		D6F27EF723E568CB00497DCD /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		F0C233F55C4A66D142984658 /* Pods_SwiftSyndeyLocations.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftSyndeyLocations.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -241,7 +239,6 @@
 				D6F27EE123E50CCA00497DCD /* Reachability.swift */,
 				D6F27EE323E50F8D00497DCD /* Result.swift */,
 				D6F27EE923E5228800497DCD /* GCD.swift */,
-				D6F27EF723E568CB00497DCD /* UIView+Extensions.swift */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -485,7 +482,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D6F27EF823E568CB00497DCD /* UIView+Extensions.swift in Sources */,
 				D6F27EEA23E5228800497DCD /* GCD.swift in Sources */,
 				D6F27EAC23E5082C00497DCD /* ViewController.swift in Sources */,
 				D6F27EA823E5082C00497DCD /* AppDelegate.swift in Sources */,

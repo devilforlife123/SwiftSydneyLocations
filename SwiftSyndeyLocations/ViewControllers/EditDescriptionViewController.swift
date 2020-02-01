@@ -14,7 +14,8 @@ import UIKit
 
 protocol LocationDelegate:class{
     
-    func locationDescriptionChanged(_ changedLocation:Location)
+    func locationDetailsChanged(_ changedLocation:Location)
+    func locationDeleted(_ deletedLocation:Location)
 }
 
 
@@ -30,10 +31,24 @@ class EditDescriptionViewController:UITableViewController{
          navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func deleteButtonPressed(_ sender:Any){
+        let alertController = UIAlertController(title: title, message: "Do you want to Delete the Location?", preferredStyle: UIAlertController.Style.alert)
+                let okAction = UIAlertAction(title:NSLocalizedString("OK", comment: ""), style: UIAlertAction.Style.default) {(action) in
+                    self.delegate.locationDeleted(self.location)
+                    self.navigationController?.popViewController(animated: true)
+                }
+                let closeAction = UIAlertAction(title:NSLocalizedString("Cancel", comment: ""), style: UIAlertAction.Style.default) {(action) in
+
+                }
+                alertController.addAction(okAction)
+                alertController.addAction(closeAction)
+                present(alertController, animated: true, completion: nil)
+    }
+    
     @IBAction func saveButtonPressed(_ sender: Any) {
         location.locationDescription = locationDescriptionTextView.text
         location.name = locationNameTextView.text
-        delegate.locationDescriptionChanged(location)
+        delegate.locationDetailsChanged(location)
         navigationController?.popViewController(animated: true)
     }
     
@@ -171,7 +186,7 @@ extension EditDescriptionViewController: UIImagePickerControllerDelegate, UINavi
         let data = theImage.jpegData(compressionQuality: 0.5)
         location.imageData = data
       show(image: theImage)
-        delegate.locationDescriptionChanged(location)
+        delegate.locationDetailsChanged(location)
         
     }
     

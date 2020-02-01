@@ -28,7 +28,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Locations" id="IRL-kY-coO"/>
+                    <navigationItem key="navigationItem" title="Locations" id="IRL-kY-coO">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="User" id="zU8-aB-SLi">
+                            <connections>
+                                <action selector="showUserCurrentLocation" destination="BYZ-38-t0r" id="XXo-06-5VB"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="9kC-Qi-NLC" id="IZZ-u9-H5A"/>
                         <segue destination="jD6-Ko-QnW" kind="show" identifier="EditDescription" id="QjP-9a-BpE"/>
@@ -347,6 +353,43 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection id="vEH-5G-C7n">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="60" id="kVm-Cu-1NT">
+                                        <rect key="frame" x="0.0" y="483.5" width="414" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kVm-Cu-1NT" id="mQP-QF-kFw">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lic-6o-T71">
+                                                    <rect key="frame" x="20" y="10" width="374" height="40"/>
+                                                    <color key="backgroundColor" red="0.92417579889297485" green="0.063350707292556763" blue="0.046867929399013519" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                    <state key="normal" title="Delete Location">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="deleteButtonPressed:" destination="jD6-Ko-QnW" eventType="touchUpInside" id="hZK-gv-087"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Lic-6o-T71" firstAttribute="leading" secondItem="mQP-QF-kFw" secondAttribute="leading" constant="20" id="Jo3-Ym-BuE"/>
+                                                <constraint firstAttribute="bottom" secondItem="Lic-6o-T71" secondAttribute="bottom" constant="10" id="MUn-WZ-LYS"/>
+                                                <constraint firstItem="Lic-6o-T71" firstAttribute="top" secondItem="mQP-QF-kFw" secondAttribute="top" constant="10" id="XeM-Av-wOd"/>
+                                                <constraint firstAttribute="trailing" secondItem="Lic-6o-T71" secondAttribute="trailing" constant="20" id="ZjW-Nq-zuN"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="jD6-Ko-QnW" id="6nW-nX-A6k"/>
@@ -379,4 +422,7 @@
             <point key="canvasLocation" x="1959" y="138"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="User" width="24" height="24"/>
+    </resources>
 </document>
