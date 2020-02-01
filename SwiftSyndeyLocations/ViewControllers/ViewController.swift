@@ -18,7 +18,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         mapView.delegate = self
-        viewModel.fetchLocations {
+        viewModel.fetchLocations { 
         }
     }
 }

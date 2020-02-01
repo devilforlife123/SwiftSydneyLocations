@@ -11,13 +11,36 @@ import Foundation
 class SearchViewModel{
     
     func fetchLocations(completion:@escaping()->()){
-             self.request { 
+        self.request { _ in
         }
     }
         
-    func request(completion:@escaping ()->()){
+    func request(completion:@escaping (Result<LocationSearchResult?>)->()){
         NetworkManager.shared.getLocations { result in
-
+            switch result{
+            case .Success(let responseData):
+                if let model = self.processResponse(responseData){
+                    return completion(.Success(model))
+                    
+                }else {
+                    return completion(.Failure(NetworkManager.errorMessage))
+                }
+            case .Failure(let message):
+                return completion(.Failure(message))
+            case .Error(let error):
+                return completion(.Failure(error))
             }
+        }
     }
+        
+    func processResponse(_ data:Data)->LocationSearchResult?{
+           do{
+               let decoder = JSONDecoder()
+               let locationData = try decoder.decode(LocationSearchResult.self, from: data)
+               return locationData
+           }catch let err {
+               print("Err", err)
+               return nil
+           }
+       }
 }
