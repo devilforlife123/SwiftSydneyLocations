@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="b7f-26-07P" customClass="LocationView" customModule="SwiftSyndeyLocations" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="342"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" tag="1001" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="places" translatesAutoresizingMaskIntoConstraints="NO" id="pAv-1C-SCZ">
+                    <rect key="frame" x="90" y="54" width="120" height="120"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="120" id="p84-Bv-Ait"/>
+                        <constraint firstAttribute="width" secondItem="pAv-1C-SCZ" secondAttribute="height" multiplier="1:1" id="smZ-OB-csu"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" tag="1005" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BVb-EA-XyC">
+                    <rect key="frame" x="50" y="292" width="200" height="30"/>
+                    <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="200" id="0Zq-V0-3BL"/>
+                        <constraint firstAttribute="height" constant="30" id="rbJ-Ob-GwU"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
+                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="See Details"/>
+                    <connections>
+                        <action selector="seeDetails:" destination="b7f-26-07P" eventType="touchUpInside" id="iPw-x3-JLg"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VgX-Do-FAy" userLabel="Name">
+                    <rect key="frame" x="10" y="184" width="280" height="30"/>
+                    <fontDescription key="fontDescription" name="AmericanTypewriter-Semibold" family="American Typewriter" pointSize="19"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v8y-Ze-XET" userLabel="Description">
+                    <rect key="frame" x="10" y="224" width="280" height="29.5"/>
+                    <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="v8y-Ze-XET" firstAttribute="trailing" secondItem="VgX-Do-FAy" secondAttribute="trailing" id="2GX-BM-eWf"/>
+                <constraint firstItem="Qsd-Ax-00a" firstAttribute="trailing" secondItem="VgX-Do-FAy" secondAttribute="trailing" constant="10" id="3yo-9D-FbU"/>
+                <constraint firstItem="VgX-Do-FAy" firstAttribute="leading" secondItem="Qsd-Ax-00a" secondAttribute="leading" constant="10" id="IOu-gR-14g"/>
+                <constraint firstItem="VgX-Do-FAy" firstAttribute="height" relation="greaterThanOrEqual" secondItem="Qsd-Ax-00a" secondAttribute="height" multiplier="0.1" id="PBe-ai-Uot"/>
+                <constraint firstItem="BVb-EA-XyC" firstAttribute="centerX" secondItem="pAv-1C-SCZ" secondAttribute="centerX" id="Qib-74-fsE"/>
+                <constraint firstItem="v8y-Ze-XET" firstAttribute="height" relation="greaterThanOrEqual" secondItem="Qsd-Ax-00a" secondAttribute="height" multiplier="0.1" id="aWq-a1-tze"/>
+                <constraint firstItem="v8y-Ze-XET" firstAttribute="top" secondItem="VgX-Do-FAy" secondAttribute="bottom" constant="10" id="lGI-YX-h8y"/>
+                <constraint firstItem="VgX-Do-FAy" firstAttribute="top" secondItem="pAv-1C-SCZ" secondAttribute="bottom" constant="10" id="m3S-BP-M3X"/>
+                <constraint firstItem="BVb-EA-XyC" firstAttribute="top" relation="greaterThanOrEqual" secondItem="v8y-Ze-XET" secondAttribute="bottom" constant="10" id="mQD-JM-snj"/>
+                <constraint firstItem="pAv-1C-SCZ" firstAttribute="centerX" secondItem="Qsd-Ax-00a" secondAttribute="centerX" id="mdK-nK-vV5"/>
+                <constraint firstAttribute="bottom" secondItem="BVb-EA-XyC" secondAttribute="bottom" constant="20" id="o1P-I1-psW"/>
+                <constraint firstItem="Qsd-Ax-00a" firstAttribute="top" secondItem="pAv-1C-SCZ" secondAttribute="top" priority="1" constant="-10" id="qTY-98-mdd"/>
+                <constraint firstItem="v8y-Ze-XET" firstAttribute="leading" secondItem="VgX-Do-FAy" secondAttribute="leading" id="vZl-Ae-i8F"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="Qsd-Ax-00a"/>
+            <connections>
+                <outlet property="locationDescription" destination="v8y-Ze-XET" id="rU5-dk-kmX"/>
+                <outlet property="locationImageView" destination="pAv-1C-SCZ" id="haA-7Q-6YL"/>
+                <outlet property="locationName" destination="VgX-Do-FAy" id="col-Z8-vMP"/>
+                <outlet property="seeDetailsButton" destination="BVb-EA-XyC" id="AHE-Ei-ql1"/>
+            </connections>
+            <point key="canvasLocation" x="11.594202898550726" y="-128.57142857142856"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="places" width="456" height="456"/>
+    </resources>
+</document>

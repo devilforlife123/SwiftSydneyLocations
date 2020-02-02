@@ -32,7 +32,7 @@ class Location:NSObject,Codable,MKAnnotation{
         self.longitude  = coordinate.longitude
         self.name = "Default Location"
         self.locationDescription = "Default Description"
-        self.imageData = UIImage(named: "Flag")!.pngData()!
+        self.imageData = UIImage(named: "places")!.pngData()!
         self.isAdded = true
     }
        

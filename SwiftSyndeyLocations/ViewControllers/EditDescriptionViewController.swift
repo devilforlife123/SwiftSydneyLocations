@@ -96,7 +96,7 @@ class EditDescriptionViewController:UITableViewController{
                 show(image: image)
             }
         }else{
-            if let image = UIImage(named: "Flag"){
+            if let image = UIImage(named: "places"){
                 show(image:image)
             }
         }

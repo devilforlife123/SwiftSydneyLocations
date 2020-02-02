@@ -12,7 +12,7 @@ import CoreLocation
 
 class ViewController: UIViewController {
 
-    var viewModel:SearchViewModel = SearchViewModel()
+    var viewModel:SearchViewModel = SearchViewModel.shared
     var refreshBarButton:UIBarButtonItem!
     var selectedLocation:Location? = nil
     @IBOutlet weak var mapView:MKMapView!
@@ -26,12 +26,10 @@ class ViewController: UIViewController {
         let authStatus = CLLocationManager.authorizationStatus()
         if authStatus == .notDetermined {
           locationManager.requestWhenInUseAuthorization()
-          return
         }
         
         if authStatus == .denied || authStatus == .restricted {
           showAlert(message: "Please enable location services for this app in Settings.")
-          return
         }
         self.configureUIElements()
          self.configureClosures()
@@ -53,7 +51,9 @@ class ViewController: UIViewController {
         
         viewModel.dataUpdated = {
             [weak self] in
+            
             GCD.runOnMainThread {
+                
                 self?.addAnnotations()
                 self?.showLocations()
                 self?.navigationItem.rightBarButtonItem?.isEnabled = true
@@ -105,8 +105,7 @@ class ViewController: UIViewController {
     
     
     func addAnnotations() {
-        
-            self.mapView.removeAnnotations(self.viewModel.locationsArray)
+            self.mapView.removeAnnotations(self.mapView.annotations)
             self.mapView.addAnnotations(self.viewModel.locationsArray)
     }
     
@@ -157,57 +156,61 @@ extension ViewController:MKMapViewDelegate{
         guard annotation is Location else {
           return nil
         }
-       let identifier = "LocationView"
+
         
-    
-        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "LocationView")
         if annotationView == nil {
-          let pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-
-          pinView.isEnabled = true
-          pinView.canShowCallout = true
-          pinView.animatesDrop = true
-          let rightButton = UIButton(type: .detailDisclosure)
-          rightButton.addTarget(self, action: #selector(showLocationDescription(_:)), for: .touchUpInside)
-          pinView.rightCalloutAccessoryView = rightButton
-          annotationView = pinView
+            annotationView = LocationAnnotationView(annotation: annotation, reuseIdentifier: "LocationView")
+            (annotationView as! LocationAnnotationView).locationDetailDelegate = self
+        } else {
+            annotationView!.annotation = annotation
         }
-
-        if let annotationView = annotationView {
-
-          annotationView.annotation = annotation
+        if let isAdded = (annotation as! Location).isAdded{
+                  if isAdded{
+                    (annotationView as! LocationAnnotationView).image = resizedCustomPinImage
+                  }else{
+                    (annotationView as! LocationAnnotationView).image = UIImage(named:"Flag")
+                  }
+              }else{
+                  (annotationView as! LocationAnnotationView).image = UIImage(named:"Flag")
         }
-        if let _ = (annotation as! Location).isAdded{
-            (annotationView as! MKPinAnnotationView).pinTintColor = UIColor.brown
-        }else{
-            (annotationView as! MKPinAnnotationView).pinTintColor = UIColor.red
-        }
-        var locationImage:UIImage!
-          if let data = (annotation as! Location).imageData{
-              locationImage = UIImage(data: data)
-          }else{
-              locationImage = UIImage(named:"Flag")
-          }
-        let locationImageView =  UIImageView(frame: CGRect(x: 0, y: 0, width: annotationView!.frame.height, height: annotationView!.frame.height))
-        locationImageView.image = locationImage
-        annotationView?.leftCalloutAccessoryView = locationImageView
-        let detailLabel = UILabel()
-             detailLabel.numberOfLines = 0
-             detailLabel.font = detailLabel.font.withSize(15)
-            detailLabel.text = (annotation as! Location).locationDescription ?? ("No Description")
-        annotationView?.detailCalloutAccessoryView = detailLabel
         return annotationView
     }
     
-    
-    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-            selectedLocation = view.annotation as? Location
+       func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView]) {
+        var i = -1;
+        for view in views {
+            i += 1;
+            if view.annotation is MKUserLocation {
+                continue;
+            }
+            let point:MKMapPoint  =  MKMapPoint(view.annotation!.coordinate);
+            if (!self.mapView.visibleMapRect.contains(point)) {
+                continue;
+            }
+            let endFrame:CGRect = view.frame;
+            view.frame = CGRect(origin: CGPoint(x: view.frame.origin.x,y :view.frame.origin.y-self.view.frame.size.height), size: CGSize(width: view.frame.size.width, height: view.frame.size.height))
+            let delay = 0.03 * Double(i)
+            UIView.animate(withDuration: 0.5, delay: delay, options: UIView.AnimationOptions.curveEaseIn, animations:{() in
+                view.frame = endFrame
+            }, completion:{(Bool) in
+                UIView.animate(withDuration: 0.05, delay: 0.0, options: UIView.AnimationOptions.curveEaseInOut, animations:{() in
+                    view.transform = CGAffineTransform(scaleX: 1.0, y: 0.6)
+                }, completion: {(Bool) in
+                    UIView.animate(withDuration: 0.3, delay: 0.0, options: UIView.AnimationOptions.curveEaseInOut, animations:{() in
+                        view.transform = CGAffineTransform.identity
+                    }, completion: nil)
+                })
+            })
         }
-        
-        @objc func showLocationDescription(_ sender: UIButton) {
-            
-           performSegue(withIdentifier: "EditDescription", sender: sender)
-         }
+    }
+    
+    
+        func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+            self.selectedLocation = view.annotation as? Location
+        }
+    
+
         
         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             if segue.identifier == "EditDescription"{
@@ -243,9 +246,23 @@ extension ViewController:MKMapViewDelegate{
            location?.name = changedLocation.name
            location?.imageData = changedLocation.imageData
            try! DiskCareTaker.save(viewModel.locationsArray, to: viewModel.fileName)
-           addAnnotations()
            self.showLocations()
                
         }
     }
+extension ViewController:LocationDetailDelegate{
+    
+    func detailsShownForLocation(location: Location) {
+               self.selectedLocation = location
+               self.performSegue(withIdentifier: "EditDescription", sender: nil)
+        }
+    
+}
+
+extension ViewController:CLLocationManagerDelegate{
+    
+    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
+        viewModel.userLocation = userLocation.coordinate
+    }
+}
 

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0CCC38C972A99636506D10AB /* Pods_SwiftSyndeyLocations_SwiftSyndeyLocationsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 924BDA56AD68C2EA1BCC0BD8 /* Pods_SwiftSyndeyLocations_SwiftSyndeyLocationsUITests.framework */; };
 		8A55F2A8D78FB1B1FFFFC422 /* Pods_SwiftSyndeyLocations.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0C233F55C4A66D142984658 /* Pods_SwiftSyndeyLocations.framework */; };
+		D643DEC223E6D57900B82A01 /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D643DEC123E6D57900B82A01 /* LocationTableViewCell.swift */; };
+		D643DEC423E6DEA300B82A01 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D643DEC323E6DEA300B82A01 /* TableViewCell.swift */; };
 		D6F27EA823E5082C00497DCD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F27EA723E5082C00497DCD /* AppDelegate.swift */; };
 		D6F27EAA23E5082C00497DCD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F27EA923E5082C00497DCD /* SceneDelegate.swift */; };
 		D6F27EAC23E5082C00497DCD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F27EAB23E5082C00497DCD /* ViewController.swift */; };
@@ -26,6 +28,10 @@
 		D6F27EEA23E5228800497DCD /* GCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F27EE923E5228800497DCD /* GCD.swift */; };
 		D6F27EEC23E52BB300497DCD /* DiskCareTaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F27EEB23E52BB300497DCD /* DiskCareTaker.swift */; };
 		D6F27EEE23E52CD900497DCD /* EditDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F27EED23E52CD900497DCD /* EditDescriptionViewController.swift */; };
+		D6F27EFA23E59D7E00497DCD /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F27EF923E59D7E00497DCD /* LocationsViewController.swift */; };
+		D6F27EFC23E60DD700497DCD /* LocationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6F27EFB23E60DD600497DCD /* LocationView.xib */; };
+		D6F27EFE23E610A400497DCD /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F27EFD23E610A400497DCD /* LocationView.swift */; };
+		D6F27F0023E6122200497DCD /* LocationAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F27EFF23E6122200497DCD /* LocationAnnotationView.swift */; };
 		D7D5157C9622EE2C1DB4B8DE /* Pods_SwiftSyndeyLocationsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B1F4400920307204B4D529E /* Pods_SwiftSyndeyLocationsTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +60,8 @@
 		74451B426C3B000AC4A6165F /* Pods-SwiftSyndeyLocations.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftSyndeyLocations.debug.xcconfig"; path = "Target Support Files/Pods-SwiftSyndeyLocations/Pods-SwiftSyndeyLocations.debug.xcconfig"; sourceTree = "<group>"; };
 		7B1F4400920307204B4D529E /* Pods_SwiftSyndeyLocationsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftSyndeyLocationsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		924BDA56AD68C2EA1BCC0BD8 /* Pods_SwiftSyndeyLocations_SwiftSyndeyLocationsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftSyndeyLocations_SwiftSyndeyLocationsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D643DEC123E6D57900B82A01 /* LocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
+		D643DEC323E6DEA300B82A01 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		D6E43549D05D010CE6A886D7 /* Pods-SwiftSyndeyLocations-SwiftSyndeyLocationsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftSyndeyLocations-SwiftSyndeyLocationsUITests.release.xcconfig"; path = "Target Support Files/Pods-SwiftSyndeyLocations-SwiftSyndeyLocationsUITests/Pods-SwiftSyndeyLocations-SwiftSyndeyLocationsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		D6F27EA423E5082C00497DCD /* SwiftSyndeyLocations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftSyndeyLocations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6F27EA723E5082C00497DCD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +86,10 @@
 		D6F27EE923E5228800497DCD /* GCD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCD.swift; sourceTree = "<group>"; };
 		D6F27EEB23E52BB300497DCD /* DiskCareTaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskCareTaker.swift; sourceTree = "<group>"; };
 		D6F27EED23E52CD900497DCD /* EditDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDescriptionViewController.swift; sourceTree = "<group>"; };
+		D6F27EF923E59D7E00497DCD /* LocationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsViewController.swift; sourceTree = "<group>"; };
+		D6F27EFB23E60DD600497DCD /* LocationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationView.xib; sourceTree = "<group>"; };
+		D6F27EFD23E610A400497DCD /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
+		D6F27EFF23E6122200497DCD /* LocationAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAnnotationView.swift; sourceTree = "<group>"; };
 		F0C233F55C4A66D142984658 /* Pods_SwiftSyndeyLocations.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftSyndeyLocations.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -135,6 +147,7 @@
 		D6F27E9B23E5082C00497DCD = {
 			isa = PBXGroup;
 			children = (
+				D643DEC323E6DEA300B82A01 /* TableViewCell.swift */,
 				D6F27EA623E5082C00497DCD /* SwiftSyndeyLocations */,
 				D6F27EBD23E5082D00497DCD /* SwiftSyndeyLocationsTests */,
 				D6F27EC823E5082D00497DCD /* SwiftSyndeyLocationsUITests */,
@@ -163,9 +176,6 @@
 				D6F27ED923E5084100497DCD /* Models */,
 				D6F27ED823E5083A00497DCD /* Views */,
 				D6F27ED723E5083100497DCD /* ViewControllers */,
-				D6F27EA923E5082C00497DCD /* SceneDelegate.swift */,
-				D6F27EB023E5082D00497DCD /* Assets.xcassets */,
-				D6F27EB223E5082D00497DCD /* LaunchScreen.storyboard */,
 				D6F27EB523E5082D00497DCD /* Info.plist */,
 			);
 			path = SwiftSyndeyLocations;
@@ -194,6 +204,7 @@
 			children = (
 				D6F27EAB23E5082C00497DCD /* ViewController.swift */,
 				D6F27EED23E52CD900497DCD /* EditDescriptionViewController.swift */,
+				D6F27EF923E59D7E00497DCD /* LocationsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -201,6 +212,9 @@
 		D6F27ED823E5083A00497DCD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D6F27EFD23E610A400497DCD /* LocationView.swift */,
+				D6F27EFF23E6122200497DCD /* LocationAnnotationView.swift */,
+				D643DEC123E6D57900B82A01 /* LocationTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -220,6 +234,7 @@
 		D6F27EDA23E5084700497DCD /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				D6F27EB023E5082D00497DCD /* Assets.xcassets */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -227,7 +242,9 @@
 		D6F27EDB23E5084F00497DCD /* Storyboards & Xibs */ = {
 			isa = PBXGroup;
 			children = (
+				D6F27EB223E5082D00497DCD /* LaunchScreen.storyboard */,
 				D6F27EAD23E5082C00497DCD /* Main.storyboard */,
+				D6F27EFB23E60DD600497DCD /* LocationView.xib */,
 			);
 			path = "Storyboards & Xibs";
 			sourceTree = "<group>";
@@ -236,6 +253,7 @@
 			isa = PBXGroup;
 			children = (
 				D6F27EA723E5082C00497DCD /* AppDelegate.swift */,
+				D6F27EA923E5082C00497DCD /* SceneDelegate.swift */,
 				D6F27EE123E50CCA00497DCD /* Reachability.swift */,
 				D6F27EE323E50F8D00497DCD /* Result.swift */,
 				D6F27EE923E5228800497DCD /* GCD.swift */,
@@ -353,6 +371,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D6F27EB423E5082D00497DCD /* LaunchScreen.storyboard in Resources */,
+				D6F27EFC23E60DD700497DCD /* LocationView.xib in Resources */,
 				D6F27EB123E5082D00497DCD /* Assets.xcassets in Resources */,
 				D6F27EAF23E5082C00497DCD /* Main.storyboard in Resources */,
 			);
@@ -484,14 +503,19 @@
 			files = (
 				D6F27EEA23E5228800497DCD /* GCD.swift in Sources */,
 				D6F27EAC23E5082C00497DCD /* ViewController.swift in Sources */,
+				D643DEC223E6D57900B82A01 /* LocationTableViewCell.swift in Sources */,
 				D6F27EA823E5082C00497DCD /* AppDelegate.swift in Sources */,
 				D6F27EE223E50CCA00497DCD /* Reachability.swift in Sources */,
 				D6F27EE623E5178400497DCD /* LocationSearchResult.swift in Sources */,
 				D6F27EE823E517A100497DCD /* Location.swift in Sources */,
 				D6F27EEE23E52CD900497DCD /* EditDescriptionViewController.swift in Sources */,
 				D6F27EE023E50C9600497DCD /* NetworkManager.swift in Sources */,
+				D6F27EFA23E59D7E00497DCD /* LocationsViewController.swift in Sources */,
 				D6F27EEC23E52BB300497DCD /* DiskCareTaker.swift in Sources */,
+				D6F27F0023E6122200497DCD /* LocationAnnotationView.swift in Sources */,
 				D6F27EE423E50F8D00497DCD /* Result.swift in Sources */,
+				D6F27EFE23E610A400497DCD /* LocationView.swift in Sources */,
+				D643DEC423E6DEA300B82A01 /* TableViewCell.swift in Sources */,
 				D6F27EDE23E50C2F00497DCD /* SearchViewModel.swift in Sources */,
 				D6F27EAA23E5082C00497DCD /* SceneDelegate.swift in Sources */,
 			);

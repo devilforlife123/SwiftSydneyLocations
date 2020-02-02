@@ -7,13 +7,17 @@
 //
 
 import Foundation
+import CoreLocation
 
 class SearchViewModel{
+    
+    static let shared = SearchViewModel()
     
     let fileName = "locationData"
     var showAlert:((String)->())?
     var locationsArray = [Location]()
     var dataUpdated:(()->())?
+    var userLocation:CLLocationCoordinate2D! = CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0)
     
     func loadLocations(){
         if let locations = try? DiskCareTaker.retrieve([Location].self, from: fileName){
