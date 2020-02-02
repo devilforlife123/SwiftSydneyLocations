@@ -49,7 +49,7 @@ class LocationAnnotationView: MKAnnotationView {
             
             if let newCustomCalloutView = loadLocationView() {
                 
-                newCustomCalloutView.frame.origin.x -= newCustomCalloutView.frame.width / 2.0 - (self.frame.width / 2.0)
+                newCustomCalloutView.frame.origin.x -= newCustomCalloutView.frame.width / 4.0 - (self.frame.width / 4.0)
                 newCustomCalloutView.frame.origin.y -= newCustomCalloutView.frame.height
                 
                 self.addSubview(newCustomCalloutView)

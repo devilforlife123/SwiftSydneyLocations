@@ -23,8 +23,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         mapView.delegate = self
+
         self.configureUIElements()
-         self.configureClosures()
+        self.configureClosures()
         activityIndicatorView.startAnimating()
         viewModel.loadLocations()
         let authStatus = CLLocationManager.authorizationStatus()
