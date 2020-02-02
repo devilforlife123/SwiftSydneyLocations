@@ -12,7 +12,7 @@ import MapKit
 
 private let locationMapPinImage = UIImage(named: "mapPin")!
 private let locationMapAnimationTime = 0.5
-var resizedCustomPinImage:UIImage = {
+let resizedCustomPinImage:UIImage = {
       let size = CGSize(width: 50, height: 50)
                         UIGraphicsBeginImageContext(size)
                  locationMapPinImage.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
@@ -21,7 +21,8 @@ var resizedCustomPinImage:UIImage = {
 }()
 
 class LocationAnnotationView: MKAnnotationView {
-    // data
+    
+    
     weak var locationDetailDelegate: LocationDetailDelegate?
     weak var customCalloutView: LocationView?
     override var annotation: MKAnnotation? {

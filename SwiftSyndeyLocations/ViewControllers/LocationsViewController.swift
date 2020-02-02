@@ -16,6 +16,7 @@ class LocationsViewController:UITableViewController{
     var viewModel:SearchViewModel = SearchViewModel.shared
     var sortedArray:[Location]!
     var userCoreLocation:CLLocation!
+    var selectedLocation:Location!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +52,35 @@ class LocationsViewController:UITableViewController{
             return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "EditDescription"{
+            let controller = segue.destination as! EditDescriptionViewController
+            controller.delegate = self
+            if let indexPath = self.tableView.indexPathForSelectedRow{
+                controller.location = sortedArray[indexPath.row]
+            }else{
+                controller.location = nil
+            }
+        }
     }
 }
+
+extension LocationsViewController:LocationDelegate{
+      
+      func locationDeleted(_ deletedLocation:Location){
+          viewModel.locationsArray.removeAll { (location) -> Bool in
+              return location == deletedLocation
+          }
+          try! DiskCareTaker.save(viewModel.locationsArray, to: viewModel.fileName)
+      }
+      
+     func locationDetailsChanged(_ changedLocation: Location) {
+             
+         let location = viewModel.locationsArray.filter({$0 == changedLocation}).first
+         location?.locationDescription = changedLocation.locationDescription
+         location?.name = changedLocation.name
+         location?.imageData = changedLocation.imageData
+         try! DiskCareTaker.save(viewModel.locationsArray, to: viewModel.fileName)
+             
+      }
+  }

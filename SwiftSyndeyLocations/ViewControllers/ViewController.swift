@@ -23,18 +23,22 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         mapView.delegate = self
-        let authStatus = CLLocationManager.authorizationStatus()
-        if authStatus == .notDetermined {
-          locationManager.requestWhenInUseAuthorization()
-        }
-        
-        if authStatus == .denied || authStatus == .restricted {
-          showAlert(message: "Please enable location services for this app in Settings.")
-        }
         self.configureUIElements()
          self.configureClosures()
         activityIndicatorView.startAnimating()
         viewModel.loadLocations()
+        let authStatus = CLLocationManager.authorizationStatus()
+         if authStatus == .notDetermined {
+           locationManager.requestWhenInUseAuthorization()
+         }
+                     
+         if authStatus == .denied || authStatus == .restricted {
+           showAlert(message: "Please enable location services for this app in Settings.")
+         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
     func configureClosures(){
