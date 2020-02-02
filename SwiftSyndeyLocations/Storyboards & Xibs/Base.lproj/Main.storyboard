@@ -285,14 +285,22 @@
                                                         <constraint firstAttribute="height" constant="22" id="PCC-uq-80d"/>
                                                     </constraints>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="click to change" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GAn-oO-zE4">
+                                                    <rect key="frame" x="133.5" y="10" width="116" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="GAn-oO-zE4" firstAttribute="centerX" secondItem="Kkp-hq-2Vk" secondAttribute="centerX" id="I7y-pI-0Om"/>
                                                 <constraint firstItem="Rya-M5-eD9" firstAttribute="leading" secondItem="ebh-nN-5PM" secondAttribute="trailing" id="Ybk-of-j7a"/>
                                                 <constraint firstItem="Rya-M5-eD9" firstAttribute="trailing" secondItem="Kkp-hq-2Vk" secondAttribute="trailingMargin" id="j9U-8h-YKI"/>
                                                 <constraint firstItem="Rya-M5-eD9" firstAttribute="bottom" secondItem="Kkp-hq-2Vk" secondAttribute="bottomMargin" id="ko7-F5-jsr"/>
                                                 <constraint firstItem="Rya-M5-eD9" firstAttribute="top" secondItem="Kkp-hq-2Vk" secondAttribute="topMargin" id="nnv-Sv-dHU"/>
                                                 <constraint firstItem="ebh-nN-5PM" firstAttribute="centerY" secondItem="Kkp-hq-2Vk" secondAttribute="centerY" id="sfJ-Ou-Uh2"/>
                                                 <constraint firstItem="ebh-nN-5PM" firstAttribute="leading" secondItem="Kkp-hq-2Vk" secondAttribute="leadingMargin" id="uwa-Uq-4Vd"/>
+                                                <constraint firstItem="GAn-oO-zE4" firstAttribute="top" secondItem="Kkp-hq-2Vk" secondAttribute="top" constant="10" id="wta-Fw-GbH"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
