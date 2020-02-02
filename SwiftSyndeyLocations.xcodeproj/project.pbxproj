@@ -62,6 +62,7 @@
 		924BDA56AD68C2EA1BCC0BD8 /* Pods_SwiftSyndeyLocations_SwiftSyndeyLocationsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftSyndeyLocations_SwiftSyndeyLocationsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D643DEC123E6D57900B82A01 /* LocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
 		D643DEC323E6DEA300B82A01 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		D643DEC523E7608D00B82A01 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D6E43549D05D010CE6A886D7 /* Pods-SwiftSyndeyLocations-SwiftSyndeyLocationsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftSyndeyLocations-SwiftSyndeyLocationsUITests.release.xcconfig"; path = "Target Support Files/Pods-SwiftSyndeyLocations-SwiftSyndeyLocationsUITests/Pods-SwiftSyndeyLocations-SwiftSyndeyLocationsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		D6F27EA423E5082C00497DCD /* SwiftSyndeyLocations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftSyndeyLocations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6F27EA723E5082C00497DCD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -203,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				D6F27EAB23E5082C00497DCD /* ViewController.swift */,
+				D643DEC523E7608D00B82A01 /* README.md */,
 				D6F27EED23E52CD900497DCD /* EditDescriptionViewController.swift */,
 				D6F27EF923E59D7E00497DCD /* LocationsViewController.swift */,
 			);
